@@ -1,0 +1,732 @@
+
+/*!
+=========================================================
+     *GENERAL
+=========================================================
+*/
+*{
+    margin: 0;
+    padding: 0;
+    border-style: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(0, 0, 0, 0.877);
+}
+
+/*!
+=========================================================
+     *HEADER
+=========================================================
+*/
+/*Nav*/
+
+.head{
+    height: 100vh;
+    width:100vw;
+    position: relative;
+    background: url("/assets/front/img/Background.jpg") ;
+    background-position: center;
+    background-size: cover;
+}
+
+.head-menu{
+    height: 100vh;
+    width:100vw;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.452);
+    background: url(/assets/front/img/Restaurant.jpg) ;
+    background-position: bottom;
+    background-size: cover;
+}
+
+.head-menu::before{ 
+    background-color: rgba(0, 0, 0, 0.452);
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 60%;
+    
+}
+
+.head::before{ 
+    background-color: rgba(0, 0, 0, 0.452);
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 60%;
+    
+}
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.603);
+    color: White;
+    gap: 5vw;
+    padding: 0 30px;
+    position: relative;
+    transition: all 0.5s ease;  
+}
+.title{
+    font-weight: lighter;
+    font-family: 'Qwigley', cursive;
+    font-size: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+.title::first-letter{
+   color: chocolate;
+}
+.nav-bar ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5vw;
+    font-size: 20px;
+    border-radius: 15px;
+    transition: all 0.6s;
+}
+.nav-bar ul li a{
+    border-radius: 15px;
+    padding: 5px 20px;
+    transition: all 0.6s;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    box-shadow: 2px  2px chocolate;
+}
+.nav-bar ul li:first-child a{
+    background-color: white;
+    color: chocolate;
+    transition: all 0.6s;
+    box-shadow: 2px  2px chocolate;
+}
+.nav-bar ul li:first-child a:hover{
+    color: white;
+    transition: all 0.6s;
+    background-color: transparent;
+    box-shadow: 2px  3px chocolate;
+ }
+.nav-bar ul li a:hover{
+    color: white;
+    font-size: 21px;
+    transition: all 0.6s;
+    box-shadow: 2px  3px chocolate;
+}
+#menu{
+    font-size: 50px;
+    cursor: pointer;
+    display: none;
+    transition: all 0.6s;
+}
+.material-symbols-outlined{
+    font-size: 30px;
+    transition: all 0.6s;
+    display: none;
+}
+/*Header-Texte*/
+.Header-Texte{
+    padding:180px;
+    margin: auto;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+.txt{
+    color: white;
+    font-size: 70px;
+    letter-spacing: 0.3vw;  
+}
+.Header-Texte h3{
+    margin: 20px;
+    color: rgba(255, 255, 255, 0.993);
+    font-size: 30px;
+}
+.button{
+    margin: auto;
+    margin: 55px 0;
+    font-size: 20px;
+    border-radius: 15px;
+    padding:10px 40px;
+    transition: all 0.6s;
+    color: white;
+    background-color: chocolate;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 2px  2px white;
+}
+.button:hover{
+    font-size: 23px;
+    transition: all 0.6s;
+    box-shadow: 3px  3px white;
+}
+
+/*!
+=========================================================
+     *Our-story
+=========================================================
+*/
+/*Our-img*/
+.Our-story{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    height: 100vh;
+    width: auto;
+    margin: auto;
+    margin-bottom: 20px;
+    gap: 30px;
+    padding: 0 80px;
+}
+.Our-img{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.Our-img a{
+    height:300px;
+    width: 200px;
+    display: flex;
+}
+.lot-img1{
+    margin: 15px 5px;
+    padding: 50px 0;
+}
+.lot-img2{
+    margin: 15px 5px;
+}
+.our-img1{
+    background: url(/assets/front/img/Pancaks.jpg) ;
+    background-position: center;
+    background-size: cover;
+    height: 80px;
+    width: 50px;
+    display: flex;
+    margin: 10px;
+}
+.our-img2{
+    background: url(/assets/front/img/Hamburgur.jpg) ;
+    background-position: center;
+    background-size: cover;
+    height: 80px;
+    width: 50px;
+    margin: 10px;
+}
+.our-img3{
+    background: url(/assets/front/img/Taccos.jpg) ;
+    background-position: center;
+    background-size: cover;
+    height: 80px;
+    width: 50px;
+    margin: 10px;
+}
+.our-img4{
+    background: url(/assets/front/img/Plat.jpg) ;
+    background-position: center;
+    background-size: cover;
+    height: 80px;
+    width: 50px;
+    margin: 10px;
+}
+/*Story-txt*/
+.Story-txt{
+    width: 50%;
+    margin: auto;
+}
+.Story-txt h1{
+    font-size: 80px;
+    color: chocolate;
+}
+.Story-txt p{
+    font-size: 20px;
+    color: white;
+    margin:10px 0;
+}
+.Story-txt a{
+    margin: 5px 0;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.6s;
+}
+.Story-txt a:hover{
+    color: chocolate;
+}
+
+/*!
+=========================================================
+     *Menu-du-jour
+=========================================================
+*/
+.Menu-du-jour{
+    height: 100vh;
+    width:auto;
+}
+.menu-title{
+   text-align: center;
+}
+.menu-title h1{
+    font-size: 80px;
+    color: chocolate;
+}
+.menu-title p{
+    margin-bottom:30px ;
+    margin-top:10px ;
+    padding:0 200px;
+    font-size: 20px;
+    color: white;
+}
+.item-menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 80%;
+    margin: auto;
+}
+.menu1{
+    background: transparent;
+    height:auto;
+    width: auto;
+}
+.img-menu1{
+    background: transparent;
+}
+a.ai{
+    height: 20em;
+    width: 18em;
+    display: flex;
+    background-color: brown;
+}
+.menu1{
+    background: transparent;
+    height:auto;
+    width: auto;
+}
+.menu2{
+    background: transparent;
+    height:auto;
+    width: auto;
+}
+.menu3{
+    background: transparent;
+    height:auto;
+    width: auto;
+}
+.img-menu1 {
+    background: url(/assets/front/img/Plat-riz.jpg) ;
+    background-position: center;
+    background-size: cover;
+    border-radius: 7px 7px 0 0  ;
+    background-color: rgba(0, 0, 0, 0.527);
+}
+.img-menu2 {
+    background: url(/assets/front/img/Viandes.jpg) ;
+    background-position: center;
+    background-size: cover;
+    border-radius: 7px 7px 0 0  ;
+    background-color: rgba(0, 0, 0, 0.527);
+}
+.img-menu3 {
+    background: url(/assets/front/img/Cotes-de-porc.jpg) ;
+    background-position: center;
+    background-size: cover;
+    border-radius: 7px 7px 0 0  ;
+    background-color: rgba(0, 0, 0, 0.527);
+}
+.menu-text{
+    height: 8.5em;
+    width: 18em;
+    background-color: rgba(0, 0, 0, 0.527);
+    border-radius:0 0 7px 7px ;
+}
+
+.menu-text p{
+   color: white;
+   position: relative;
+   font-size: 20px;
+   padding: 0 10px;
+   padding-top: 9px ;
+}
+.orloge{
+   display: flex;
+   align-items: center;
+   color: white;
+   padding: 10px 5px;
+   justify-content: flex-start;
+   font-size: 15px;
+}
+.menu-commender{
+    color: chocolate;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+.container{
+    width: 110px;
+    height: 20px;
+    position: relative;
+    padding: 0 10px;
+}
+
+.checked{
+    color: chocolate;
+}
+#cmd{
+    padding: 5px 5px;
+    background-color: transparent;
+    color: chocolate;
+    text-decoration: none ;
+}
+
+/*!
+=========================================================
+     *Taste
+=========================================================
+*/
+.taste{
+    height: 100vh;
+    width: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+    padding: 0 80px;
+    margin-bottom:35px ;
+}
+.taste-txt{
+    width: 50%;
+    margin: auto;
+}
+.taste-txt h1{
+   font-size: 60px;
+   color:chocolate;
+   padding: 15px 0;
+}
+.taste-txt p{
+    color: white;
+    font-size: 20px;
+ }
+ /*Taste-img*/
+.taste-img{
+    width: 50%;
+    margin: auto;
+}
+.taste-img img{
+    object-fit: cover;
+    object-position: center;
+    height:40em;
+    width: 30em;
+    margin: auto;
+    display: flex;
+}
+
+/*!
+=========================================================
+     *Opignon
+=========================================================
+*/
+
+.opignon{
+    width: 100%;
+    height: 50vh;
+    margin: 20px 0;
+    background:url(/assets/front/img/op.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.opignon::before{
+    background-color: black;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 80%;
+}
+#opignon-title{
+    margin: auto;
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 60px;
+    color: chocolate;
+    position: relative;
+}
+.p-opignon{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin:auto;
+    width: 70%;
+    gap: 15px;
+
+}
+.opignon-img{
+    width: auto;
+    display: flex;
+    height: auto;
+    margin: auto;
+    align-content: center;
+}
+.opignon-img img{
+    display: flex;
+    height: 150px;
+    width: 150px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin: auto;
+
+}
+.opignon-txt{
+    width: 90%;
+    height: auto;
+    margin: auto;
+    margin-bottom:35px ;
+    text-align: center;
+}
+.opignon-txt p{
+   line-height: 30px;
+   color: white;
+   font-size: 20px;
+   margin: auto;
+}
+
+/*!
+=========================================================
+     *Our-chefs
+=========================================================
+*/
+.our-chefs{
+    height: 100vh;
+    width: 100vw;
+}
+/********our-chef-head*/
+.our-chef-head{
+    margin: auto;
+    text-align: center;
+    padding-bottom: 30px;
+}
+.our-chef-head h1{
+    font-size: 70px;
+    color: chocolate;
+    padding: 20px;
+}
+.our-chef-head p{
+    font-size: 20px;
+    color: white;
+    padding-bottom: 20px;
+}
+.our-chef-body{
+    text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0 80px;
+    gap: 10px;
+}
+
+.chef1 , .chef2 , .chef3{
+    height: auto;
+    width: auto;
+    margin: auto;
+    gap: 10px;
+}
+
+.chef1-img{
+    background-color: white;
+    height:350px;
+    width: 270px;
+    margin: auto;
+    background: url(/assets/front/img/chef1.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.chef2-img {
+    background-color: white;
+    height:350px;
+    width: 270px;
+    margin: auto;
+    background: url(/assets/front/img/chef2.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.chef3-img {
+    background-color: white;
+    height:350px;
+    width: 270px;
+    margin: auto;
+    background: url(/assets/front/img/chef3.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.chef1-name , .chef2-name , .chef3-name{
+    height: 100px;
+    width: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 15px;
+}
+.firstname{
+    width: 100%;
+    font-size: 25px;
+    color: white;
+    margin: auto;
+}
+.work{
+    width: 100%;
+    font-size: 20px;
+    color: white;
+}
+/*!
+=========================================================
+     *Galérie
+=========================================================
+*/
+.galerie{
+    height: auto;
+    width: 100vw ;
+    text-align: center;
+}
+.galérie-title{
+    font-size: 70px;
+    color: chocolate;
+    text-align: center;
+    padding:  25px 0;
+}
+.item-gallerie{
+    max-width: 1300px;
+    width: 80%;
+    height: auto;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+    grid-gap: 10px;
+}
+
+.ig1{
+    height: 280px;
+    width: 250px;
+    background: url(/assets/front/img/img1.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+.ig2{
+    height: 280px;
+    width: 250px;
+    background: url(/assets/front/img/img2.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+.ig3{
+    height: 280px;
+    width: 250px;
+    background: url(/assets/front/img/img3.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+.ig4{
+    height: 280px;
+    width: 250px;
+    background: url(/assets/front/img/img4.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+.ig5{
+    height: 280px;
+    width: 250px;
+    background: url(/assets/front/img/img5.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+.ig6{
+    height: 280px;
+    width: 250px;
+    background: url(/assets/front/img/img6.jpg);
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+}
+.btn-glr{
+    font-size: 20px;
+    background-color: white;
+    color: chocolate;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 5px 6px black;
+    transition: all 0.3s;
+    margin: 20px 0;
+}
+.btn-glr:hover{
+    box-shadow: 5px 6px;
+    padding: 10px 25px;
+    transition: all 0.3s;
+    font-size: 22px;
+}
+/*!
+=========================================================
+     *Footer
+=========================================================
+*/
+.footer{
+    height: 50vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.836);
+    margin-top: 20px;
+}
+.foottiltle{
+    height: 80px;
+    width: 100vw;
+    padding: 10px 80px;
+    background-color: black;
+}
+.tt{
+    font-weight: lighter;
+    font-family: 'Qwigley', cursive;
+    font-size: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+.tt::first-letter{
+    color: chocolate;
+ }
+ .footlink{
+    height: 300px;
+    width: 100vw;
+ }
+ .foot{
+    background-color: black;
+    height: 80px;
+    width: 100vw;
+    text-align: center;
+ }
+ .foot p{
+    color: rgba(255, 255, 255, 0.589);
+    display: flex;
+    justify-content: center;
+    font-weight: lighter;
+ }
