@@ -73,18 +73,18 @@ return [
         'sub_impossible' => 'Vous avez des demandes en cours, vueillez patienter , merci !',
 
     ],
-    'alert'   => [
+    'alert' => [
         /////////sweet alert ///////////
-        'oops'            => 'Petit Problème, ',
-        'problem_server'  => 'coté serveur ,veillez réessayer !',
-        'demande_titre'   => 'Demande',
+        'oops' => 'Petit Problème, ',
+        'problem_server' => 'coté serveur ,veillez réessayer !',
+        'demande_titre' => 'Demande',
         'demande_message' => 'Demande bien éffectuée !',
-        'sure'            => 'Engagement',
-        'subtext_sure'    => 'Après envoi de votre demande vous ne pourriez plus faire de demande pendant un certains temps !',
-        'confirm_btn'     => 'Oui, engagement confirmé !',
-        'cancel_btn'      => 'Non, Annuler !',
-        'env_imp'         => 'envoi impossible!',
-        'sub_env'         => 'demande envoyée, vueillez consulter votre mail regulièrement pour recevoir notre reponse dans les 10 jours !',
+        'sure' => 'Engagement',
+        'subtext_sure' => 'Après envoi de votre demande vous ne pourriez plus faire de demande pendant un certains temps !',
+        'confirm_btn' => 'Oui, engagement confirmé !',
+        'cancel_btn' => 'Non, Annuler !',
+        'env_imp' => 'envoi impossible!',
+        'sub_env' => 'demande envoyée, vueillez consulter votre mail regulièrement pour recevoir notre reponse dans les 10 jours !',
     ],
 
     'errors' => [
@@ -92,6 +92,7 @@ return [
 
         'password' => " Votre mot de passe doit comporter plus de 8 caractères et au moins 1 caractère
          majuscule, 1 minuscule, 1 caractère numérique et 1 caractère spécial.",
+        "nom" => "le nom est réquis"
     ],
 
     'page_view_halde' => [

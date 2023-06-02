@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Valencienne</title>
     <script src="https://kit.fontawesome.com/2b1a7acadb.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
 
     <!--Style-->
     <link rel="stylesheet" href="{{ asset('assets/front/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/vendors/owl-carousel-2/owl.theme.default.min.css') }}">
     <link rel="website icon" type="png" href="{{ asset('assets/front/images/l1.png') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
     <!--Police d'écriture-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,49 +43,71 @@
         </div>
     </header>
 
+    @push('styles')
+        <link href="{{ asset('assets/css/css-custom.css') }}" rel="stylesheet">
+    @endpush
 
     <section class="Menu-du-jour">
-        <div>
-            <form>
+
+
+        <!-- Votre HTML -->
+        <div class="container">
+            <form action="{{ route('commande.store') }}" method="post" class="dash-profile-form">
+                {{ csrf_field() }}
                 <div class="g-start-2" style="grid-row: 2">
                     <div class="card" style="width=500px !important ;margin:100px;">
 
                         <div class="card-body">
+                            <!-- Personnes -->
+                            <div class="mb-3">
+                                <label for="prenom" class="col-sm-2 col-form-label">Prénom</label>
+                                <input type="text" class="form-control" name="prenom" id="prenom" placeholder="">
+                                @if ($errors->has('prenom'))
+                                    <span class="text-danger">{{ $errors->first('prenom') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="nom" class="col-sm-2 col-form-label">Nom</label>
+                                <input type="text" class="form-control" name="nom" id="nom" placeholder="">
+                                @if ($errors->has('nom'))
+                                    <span class="text-danger">{{ $errors->first('nom') }}</span>
+                                @endif
+                            </div>
+
                             <div class="mb-3">
                                 <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                <input type="email" name="email" class="form-control" id="exampleFormControlInput1"
                                     placeholder="name@example.com">
+                                @if ($errors->has('email'))
+                                    <span class="text-danger">{{ $errors->first('email') }}</span>
+                                @endif
                             </div>
+
                             <div class="mb-3">
-                                <label for="plat" class="form-label">Nos plats</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Open this select menu</option>
-                                    <option value="1">Le couscous</option>
-                                    <option value="2">Le Thé</option>
-                                    <option value="3">Three</option>
+                                <label>Liste des plats</label>
+                                <select name="plat_id" class="form-control">
+                                    <option value="">Sélectionnez un plat</option>
+                                    @foreach ($plats as $plat)
+                                        <option value="{{ $plat->id }}">{{ $plat->nom }} - {{ $plat->prix }}
+                                            DH</option>
+                                    @endforeach
                                 </select>
                             </div>
+
                             <div class="mb-3">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">Taille du plat</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Les tailles</option>
-                                    <option value="1">Petite</option>
-                                    <option value="2">Moyenne</option>
-                                    <option value="3">Grande</option>
-                                </select>
+                                <label>Quantite</label>
+                                <input name="quantite" class="form-control" value="1" type="number"
+                                    step="1">
                             </div>
                             <div class="mb-3">
-                                <label for="montant" class="col-sm-2 col-form-label">Montant (DH)</label>
-                                <input type="number" class="form-control" id="montant" placeholder="100">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <label for="exampleFormControlTextarea1" class="form-label">Commentaire</label>
+                                <textarea class="form-control" name="commentaire" id="commentaire" rows="3"></textarea>
                             </div>
 
 
                             <div class="text-center">
-                                <button type="button" class="btn btn-primary btn-lg">commander</button>
+                                <button type="submit" class="btn btn-primary btn-lg">commander</button>
                             </div>
                         </div>
 
@@ -93,13 +115,19 @@
                     </div>
                 </div>
             </form>
-
         </div>
 
 
     </section>
-
+    <!-- Dans votre fichier Blade -->
+    @stack('styles')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="{{ asset('assets/front/js/index.js') }}"></script>
+    @if (session('success'))
+        <script>
+            swal("Succès", "{{ session('success') }}", "success");
+        </script>
+    @endif
 </body>
 
 </html>

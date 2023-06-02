@@ -53,25 +53,31 @@
         <span class="nav-link">Navigation</span>
     </li>
     <li class="nav-item menu-items">
-        <a class="nav-link" href="{{ route('user.index') }}">
+        <a class="nav-link" href="{{ route('user.index') }}" style="margin-bottom: 10px;">
             <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
             </span>
             <span class="menu-title">Utilisateurs</span>
         </a>
-        <a class="nav-link" href="{{ route('categorie.index') }}">
+        <a class="nav-link" href="{{ route('personne.index') }}" style="margin-bottom: 10px;">
+            <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+            </span>
+            <span class="menu-title">Clients</span>
+        </a>
+        <a class="nav-link" href="{{ route('categorie.index') }}" style="margin-bottom: 10px;">
             <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
             </span>
             <span class="menu-title">Categories</span>
         </a>
-        <a class="nav-link" href="{{ route('plat.index') }}">
+        <a class="nav-link" href="{{ route('plat.index') }}" style="margin-bottom: 10px;">
             <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
             </span>
             <span class="menu-title">Plats</span>
         </a>
-        <a class="nav-link" href="{{ route('commande.index') }}">
+        <a class="nav-link" href="{{ route('commande.index') }}" style="margin-bottom: 10px;">
             <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
             </span>
