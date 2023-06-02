@@ -16,7 +16,7 @@ return new class extends Migration {
             $table->text('description')->nullable();
             $table->decimal('prix', 8, 2);
             $table->integer('categorie_id')->unsigned()->nullable();
-            $table->integer('restaurant_id')->unsigned();
+            $table->integer('restaurant_id')->unsigned()->nullable();
             // Autres colonnes spécifiques aux plats
             $table->timestamps();
 

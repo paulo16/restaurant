@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Corona Admin</title>
+    <title>Valentienne Admin</title>
     <!-- plugins:css -->
     @yield('head')
     <link rel="stylesheet" href="{{ asset('assets/vendors/mdi/css/materialdesignicons.min.css') }}">
@@ -35,8 +35,7 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                <a class="sidebar-brand brand-logo" href="index.html"><img src="{{ asset('assets/images/logo.svg') }}"
-                        alt="logo" /></a>
+                <h1>Valencienne</h1>
                 <a class="sidebar-brand brand-logo-mini" href="index.html"><img
                         src="{{ asset('assets/images/logo-mini.svg') }}" alt="logo" /></a>
             </div>

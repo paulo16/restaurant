@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\PlatController;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\PersonneController;
 
 
 /*
@@ -26,10 +27,8 @@ Route::get('menu', function () {
     return view('front.menu');
 })->name('menu');
 
-Route::get('reservation', function () {
-    return view('front.reservation');
-})->name('reservation');
-;
+
+Route::get('reservation', [CommandeController::class, 'createCommande'])->name('reservation');
 
 // Route::get('/admin', function () {
 //     return view('layouts.admin.default');
@@ -43,6 +42,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('user/delete/{id}', [UserController::class, 'delete'])->name('user.delete');
     Route::get('user/data', [UserController::class, 'data'])->name('user.data');
     Route::resource('user', UserController::class);
+});
+
+Route::group(['prefix' => 'admin'], function () {
+
+    Route::post('personne/delete/{id}', [PersonneController::class, 'delete'])->name('personne.delete');
+    Route::get('personne/data', [PersonneController::class, 'data'])->name('personne.data');
+    Route::resource('personne', PersonneController::class);
 });
 
 

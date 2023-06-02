@@ -8,6 +8,7 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Models\Commande;
 use App\Models\User;
 use App\Models\Plat;
+use App\Models\Personne;
 use Illuminate\Support\Facades\DB;
 
 class CommandeController extends Controller
@@ -35,6 +36,17 @@ class CommandeController extends Controller
   }
 
   /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function createCommande()
+  {
+    $plats = Plat::all();
+    return view('front.reservation', compact('plats'));
+  }
+
+  /**
    * Store a newly created resource in storage.
    *
    * @param  \Illuminate\Http\Request  $request
@@ -42,20 +54,51 @@ class CommandeController extends Controller
    */
   public function store(Request $request)
   {
-    $this->validate($request, [
-      'plat_id' => 'required|exists:plats,id',
-      'user_id' => 'required|exists:users,id',
-      // Ajouter d'autres validations si nécessaire
-    ]);
+    if ($request->user_id) {
+      $this->validate($request, [
+        'plat_id' => 'required|exists:plats,id',
+        'user_id' => 'required|exists:users,id',
+        // Ajouter d'autres validations si nécessaire
+      ]);
+    } else {
+      $this->validate($request, [
+        'plat_id' => 'required|exists:plats,id',
+        'prenom' => 'required',
+        'nom' => 'required',
+        'email' => 'required',
+        'quantite' => 'required',
+        // Ajouter d'autres validations si nécessaire
+      ]);
+
+      $personne = Personne::where('email', $request->get('email'))->first();
+
+      if ($personne === null) {
+
+        $personne = new Personne();
+        $personne->nom = $request->get('nom') ? $request->get('nom') : '';
+        $personne->prenom = $request->get('prenom') ? $request->get('prenom') : '';
+        $personne->email = $request->get('email') ? $request->get('email') : '';
+        $personne->save();
+      }
+    }
+
 
     $commande = new Commande();
     $commande->plat_id = $request->plat_id;
-    $commande->user_id = $request->user_id;
+    $commande->user_id = $request->user_id ?? null;
+    $commande->personne_id = $personne->id ?? null;
     $commande->quantite = $request->quantite;
 
     // Ajouter d'autres champs si nécessaire
+    if ($request->user_id) {
+      return $commande->save() ? redirect()->route('commande.index') : redirect()->route('commande.create');
+    } else {
+      $commande->save();
+      session()->flash('success', 'Votre commande a été enregistré avec succès.');
+      return redirect()->back();
 
-    return $commande->save() ? redirect()->route('commande.index') : redirect()->route('commande.create');
+    }
+
   }
 
   /**
@@ -138,10 +181,12 @@ class CommandeController extends Controller
       'plats.nom as plat',
       'plats.prix as prix',
       'users.name as utilisateur',
+      'personnes.nom as client',
       'commandes.quantite as quantite',
       'commandes.created_at as created_at'
     ])->leftJoin('plats', 'plats.id', '=', 'commandes.plat_id')
-      ->leftJoin('users', 'users.id', '=', 'commandes.user_id');
+      ->leftJoin('users', 'users.id', '=', 'commandes.user_id')
+      ->leftJoin('personnes', 'personnes.id', '=', 'commandes.personne_id');
 
     $datatables = DataTables::of($commandes)
       ->addColumn('action', function ($model) {

@@ -13,13 +13,15 @@ return new class extends Migration {
         Schema::create('commandes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('plat_id')->unsigned();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('personne_id')->nullable();
             $table->integer('quantite')->nullable();
             // Autres colonnes spécifiques aux commandes
             $table->timestamps();
 
             $table->foreign('plat_id')->references('id')->on('plats');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('personne_id')->references('id')->on('personnes')->onDelete('cascade');
         });
     }
 

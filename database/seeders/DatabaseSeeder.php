@@ -8,6 +8,7 @@ use Database\Seeders\RestaurantsTableSeeder;
 use Database\Seeders\CategoriesTableSeeder;
 use Database\Seeders\PlatsTableSeeder;
 use Database\Seeders\OrdersTableSeeder;
+use Database\Seeders\PersonneSeeder;
 
 // Ajoutez d'autres instructions use pour les autres seeders
 
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RestaurantsTableSeeder::class);
         $this->call(PlatsTableSeeder::class);
         $this->call(OrdersTableSeeder::class);
+        $this->call(PersonneSeeder::class);
         // Ajoutez d'autres lignes pour les autres seeders
 
     }

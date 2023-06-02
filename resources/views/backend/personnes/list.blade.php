@@ -1,14 +1,14 @@
 @extends('layouts.admin.default')
 
 @section('head')
-    <title>Valencienne | List</title>
+    <title>Valencienne | list</title>
 @endsection
 
 @section('content')
     <div class="tr-single-box">
 
         <div class="tr-single-header">
-            <h4><i class="ti-share"></i>Commandes</h4>
+            <h4><i class="ti-share"></i>Clients</h4>
         </div>
 
         <div class="tr-single-body">
@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="m-b-30">
-                        <a id="add-commande" role="button" href="{{ route('commande.create') }}" id="add-categorie"
+                        <a id="add-etudiant" role="button" href="{{ route('personne.create') }}" id="add-categorie"
                             class="btn btn-info waves-effect waves-light"> AJOUTER <i class="fa fa-plus"></i></a>
                     </div>
                 </div>
@@ -25,16 +25,13 @@
 
             <div class="table-responsive">
                 <br>
-                <table id="commandes" class="table">
+                <table id="users" class="table">
                     <thead>
                         <tr class="table-info">
-                            <th>ID</th>
-                            <th>Utilisateur</th>
-                            <th>Client</th>
-                            <th>Plat</th>
-                            <th>Quantité</th>
-                            <th>Prix</th>
-                            <th>Date de création</th>
+                            <th>Nom</th>
+                            <th>Prénom</th>
+                            <th>Email</th>
+                            <th>Date creation</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -50,7 +47,7 @@
 
     <script>
         $(document).ready(function() {
-            var table = $('#commandes')
+            var table = $('#users')
                 .DataTable({
                     "oLanguage": {
                         "sProcessing": "{{ Lang::get('datatable.sProcessing') }}",
@@ -76,35 +73,23 @@
                     },
                     processing: true,
                     serverSide: true,
-                    ajax: '{{ route('commande.data') }}',
+                    ajax: '{{ route('personne.data') }}',
                     data: {
                         _token: '{{ csrf_token() }}'
                     },
                     pagingType: 'full_numbers',
                     buttons: ['csv', 'excel', 'pdf'],
                     columns: [{
-                            data: 'id',
-                            name: 'id'
+                            data: 'nom',
+                            name: 'nom'
                         },
                         {
-                            data: 'utilisateur',
-                            name: 'utilisateur'
+                            data: 'prenom',
+                            name: 'prenom'
                         },
                         {
-                            data: 'client',
-                            name: 'client'
-                        },
-                        {
-                            data: 'plat',
-                            name: 'plat'
-                        },
-                        {
-                            data: 'quantite',
-                            name: 'quantite'
-                        },
-                        {
-                            data: 'prix',
-                            name: 'prix'
+                            data: 'email',
+                            name: 'email'
                         },
                         {
                             data: 'created_at',
@@ -116,8 +101,7 @@
                         }
                     ],
                 });
-
-            //////////////////// Delete Commande ///////////////////////////////////
+            //////////////////// Delete User ///////////////////////////////////
 
             $(document).on('click', '.delete', function() {
                 var id = $(this).data('id');
@@ -130,7 +114,7 @@
                     cancelButtonText: "{{ Lang::get('contenu.admin.cancel_btn') }}",
                     closeOnConfirm: false
                 };
-                var url = '{{ route('commande.delete', ':id') }}';
+                var url = '{{ route('personne.delete', ':id') }}';
                 url = url.replace(':id', id);
                 swal(swal_ot, function() {
                     $.ajax({
@@ -140,6 +124,8 @@
                             _token: '{{ csrf_token() }}'
                         },
                     }).done(function(result) {
+                        //var rep= JSON.stringify(reponse);
+                        //console.log(result);
                         if (result.reponse == "impossible") {
                             swal("{{ Lang::get('contenu.impossible') }}",
                                 "{{ Lang::get('contenu.sub_impossible') }}", "warning");
@@ -148,12 +134,14 @@
                                 "{{ Lang::get('contenu.admin.sub_sup') }}", "success");
                         }
                         table.ajax.reload(null, false);
+
                     }).error(function() {
                         swal("{{ Lang::get('contenu.admin.oops') }}",
                             "{{ Lang::get('contenu.admin.problem_server') }}", "error");
                     });
                 });
             });
+
 
         });
     </script>

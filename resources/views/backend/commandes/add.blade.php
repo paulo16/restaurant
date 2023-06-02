@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <label>Liste des clients</label>
                             <select name="user_id" class="form-control">
-                                <option value="">Sélectionnez un client</option>
+                                <option value="">Sélectionnez un utilisateur</option>
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                                 @endforeach
